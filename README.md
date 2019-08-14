@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.com/pqrs-org/cpp-osx-kext_return.svg?branch=master)](https://travis-ci.com/pqrs-org/cpp-osx-kext_return)
-[![License](https://img.shields.io/badge/license-Boost%20Software%20License-blue.svg)](https://github.com/pqrs-org/cpp-osx-kext_return/blob/master/LICENSE.md)
+[![Build Status](https://travis-ci.com/pqrs-org/cpp-osx-os_kext_return.svg?branch=master)](https://travis-ci.com/pqrs-org/cpp-osx-os_kext_return)
+[![License](https://img.shields.io/badge/license-Boost%20Software%20License-blue.svg)](https://github.com/pqrs-org/cpp-osx-os_kext_return/blob/master/LICENSE.md)
 
-# cpp-osx-kext_return
+# cpp-osx-os_kext_return
 
 A wrapper of `OSReturn`.
 
@@ -13,7 +13,7 @@ You can install `include/pqrs` by using [cget](https://github.com/pfultz2/cget).
 
 ```shell
 cget install pqrs-org/cget-recipes
-cget install pqrs-org/cpp-osx-kext_return
+cget install pqrs-org/cpp-osx-os_kext_return
 ```
 
 ### Manual install
