@@ -3,7 +3,7 @@
 
 # cpp-osx-kext_return
 
-A wrapper of `IOReturn`.
+A wrapper of `OSReturn`.
 
 ## Install
 
