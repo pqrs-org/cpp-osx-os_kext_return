@@ -1,13 +1,14 @@
 #include <boost/ut.hpp>
 #include <pqrs/osx/os_kext_return.hpp>
 
-int main(void) {
+int main() {
   using namespace boost::ut;
   using namespace boost::ut::literals;
 
   "os_kext_return"_test = [] {
     {
       pqrs::osx::os_kext_return r(kOSReturnSuccess);
+      expect(r.get() == kOSReturnSuccess);
       expect(r.to_string() == "kOSReturnSuccess");
       expect(r == true);
       expect(r.success() == true);
@@ -30,6 +31,14 @@ int main(void) {
     {
       pqrs::osx::os_kext_return r(-603946990);
       expect(r.to_string() == "kOSKextReturnBootLevel");
+      expect(r == false);
+      expect(r.success() == false);
+      expect(r.system_policy() == false);
+    }
+    {
+      pqrs::osx::os_kext_return r(54321);
+      expect(r.get() == 54321);
+      expect(r.to_string() == "Unknown OSReturn (54321)");
       expect(r == false);
       expect(r.success() == false);
       expect(r.system_policy() == false);

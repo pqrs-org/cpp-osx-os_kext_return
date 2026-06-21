@@ -4,24 +4,24 @@
 
 // (C) Copyright Takayama Fumihiko 2018.
 // Distributed under the Boost Software License, Version 1.0.
-// (See http://www.boost.org/LICENSE_1_0.txt)
+// (See https://www.boost.org/LICENSE_1_0.txt)
 
 #include <iostream>
 #include <libkern/OSKextLib.h>
 #include <string>
 
-namespace pqrs {
-namespace osx {
+namespace pqrs::osx {
+
 class os_kext_return final {
 public:
-  os_kext_return(OSReturn r) : return_(r) {
+  os_kext_return(OSReturn r) noexcept : return_(r) {
   }
 
-  OSReturn get(void) const {
+  [[nodiscard]] OSReturn get() const noexcept {
     return return_;
   }
 
-  std::string to_string(void) const {
+  [[nodiscard]] std::string to_string() const {
 #define PQRS_OSX_OS_KEXT_RETURN_TO_STRING(OSRETURN) \
   case OSRETURN:                                    \
     return #OSRETURN;
@@ -62,15 +62,15 @@ public:
     return std::string("Unknown OSReturn (") + std::to_string(return_) + ")";
   }
 
-  bool success(void) const {
+  [[nodiscard]] bool success() const noexcept {
     return return_ == kOSReturnSuccess;
   }
 
-  bool system_policy(void) const {
+  [[nodiscard]] bool system_policy() const noexcept {
     return return_ == kOSKextReturnSystemPolicy;
   }
 
-  operator bool(void) const {
+  [[nodiscard]] operator bool() const noexcept {
     return success();
   }
 
@@ -81,5 +81,5 @@ private:
 inline std::ostream& operator<<(std::ostream& stream, const os_kext_return& value) {
   return stream << value.to_string();
 }
-} // namespace osx
-} // namespace pqrs
+
+} // namespace pqrs::osx

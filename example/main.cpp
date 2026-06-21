@@ -1,6 +1,6 @@
 #include <pqrs/osx/os_kext_return.hpp>
 
-int main(void) {
+int main() {
   {
     pqrs::osx::os_kext_return r(kOSKextReturnSystemPolicy);
     std::cout << r << std::endl;
